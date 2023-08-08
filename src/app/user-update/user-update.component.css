@@ -1,0 +1,18 @@
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    background-clip: border-box;
+    border: 1px solid black;
+    margin-top: 5%;
+    width: 40%;
+    height: 550px;
+   
+}
+label{
+    font-weight: bold;
+}
+input{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}

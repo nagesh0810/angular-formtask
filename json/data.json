@@ -1,0 +1,34 @@
+{
+  "usersData": [
+    {
+      "id": 1677497676935,
+      "firstName": "Tinkar",
+      "lastName": "Shaikshavali",
+      "dateOfBirth": "1997-06-11",
+      "gender": "male",
+      "email": "tinkar@gmail.com",
+      "password": "tinkar@123",
+      "accept": true
+    },
+    {
+      "id": 1677660845023,
+      "firstName": "NAshok",
+      "lastName": "Reddy",
+      "dateOfBirth": "1993-05-12",
+      "gender": "male",
+      "email": "ashok@gmail.com",
+      "password": "ashok@123",
+      "accept": true
+    },
+    {
+      "id": 1678374066542,
+      "firstName": "Nagesh",
+      "lastName": "Reddy",
+      "dateOfBirth": "2023-03-03",
+      "gender": "male",
+      "email": "nageswar@gmail.com",
+      "password": "nagesh@123",
+      "accept": true
+    }
+  ]
+}

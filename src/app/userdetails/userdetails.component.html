@@ -1,0 +1,45 @@
+
+<div *ngIf="(users$ | async)?.length > 0; else noUsers">
+  <table class="table table-bordered table-striped table-hover custom">
+    <thead class="tablehead" style="background-color: yellowgreen;">
+      <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$ | async">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.dateOfBirth }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.email }}</td>
+        
+        <td>
+          <div class="password-container">
+            <input [type]="showPasswordUserId === user.id ? 'text' : 'password'" [value]="user.password" readonly>
+            <fa-icon *ngIf="user.password" [icon]="passwordIcon" (click)="onShowPassword(user.id)"></fa-icon>
+          </div>
+        </td>
+        <td>
+          <button style="margin-right: 20px;"  routerLink="/users/{{ user.id }}"><i class='fa fa-edit' style="color: blue;" ></i></button>
+          <button (click)="onDelete(user)"><i class="fa fa-trash" style="color: red; "></i></button>      
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" style="margin-left: 43%;" routerLink="/form">Register Here</button>
+</div>
+
+<ng-template #noUsers>
+  <p>No users found.</p>
+</ng-template>
+
+

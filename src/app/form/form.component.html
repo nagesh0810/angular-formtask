@@ -1,0 +1,137 @@
+<section class="vh-100 gradient-custom ">
+    <div class="container py-3 h-100 ">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-3">
+                <img class="center" src="./assets/telusimage.jpg">
+              <h3 class="mb-2 pb-2 pb-md-0 mb-md-4">Registration Form</h3>
+              <form  [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+  
+                    <div class="form-outline">
+                      <input type="text" id="firstName" class="form-control form-control-lg"  formControlName="firstName"/>
+                      <label class="form-label" for="firstName">First Name</label>
+  
+                      <div class="valid" 
+                      *ngIf="registrationForm.get('firstName').touched && 
+                      registrationForm.get('firstName').hasError('required')">FirstName is Required</div>
+                  <div class="valid" 
+                      *ngIf="registrationForm.get('firstName').touched && 
+                      registrationForm.get('firstName').hasError('minlength')">FirstName should be minimum 6 characters</div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="lastName" class="form-control form-control-lg" formControlName="lastName"/>
+                      <label class="form-label" for="lastName">Last Name</label>
+  
+                      <div class="valid" 
+                         *ngIf="registrationForm.get('lastName').touched && 
+                         registrationForm.get('lastName').hasError('required')">LasttName is Required</div>
+                       <div class="valid" 
+                         *ngIf="registrationForm.get('lastName').touched && 
+                         registrationForm.get('lastName').hasError('minlength')">LastName should be minimum 3 characters</div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-2 d-flex align-items-center">
+  
+                    <div class="form-outline datepicker w-100">
+                      <input type="date" class="form-control form-control-lg" id="birthdayDate" formControlName="dateOfBirth"/>
+                      <label for="birthdayDate" class="form-label">Birthday</label>
+  
+                      <div class="valid" 
+                         *ngIf="registrationForm.get('dateOfBirth').touched && 
+                         registrationForm.get('dateOfBirth').hasError('required')">Date of Birth is Required</div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="male" value="male" formControlName="gender">
+                        <label class="form-check-label" for="femaleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="female" value="female" formControlName="gender">
+                        <label class="form-check-label" for="maleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="others" value="others" formControlName="gender">
+                        <label class="form-check-label" for="otherGender">Other</label>
+                    </div>
+  
+                    <div class="valid" 
+                        *ngIf="registrationForm.get('gender').touched && 
+                        registrationForm.get('gender').hasError('required')">Gender is Required</div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="email"/>
+                      <label class="form-label" for="emailAddress">Email</label>
+                    </div>
+  
+                    <div class="valid" 
+                        *ngIf="registrationForm.get('email').touched && 
+                        registrationForm.get('email').hasError('required')">Email is Required</div>
+                    <div class="valid" 
+                        *ngIf="registrationForm.get('email').touched && 
+                        registrationForm.get('email').hasError('email')">Enter the correct emaill address</div>
+                        <div class="valid"  *ngIf="registrationForm.get('email').errors?.['emailExists']">
+                          Email already exists
+                        </div>
+                  </div>
+                  <div class="col-md-6 mb-2 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="password" id="password" class="form-control form-control-lg" formControlName="password"/>
+                      <label class="form-label" for="password">Password</label>
+                    </div>
+  
+                    <div class="valid" 
+                        *ngIf="registrationForm.get('password').touched && 
+                        registrationForm.get('password').hasError('required')">password is Required</div>
+                    <div class="valid" 
+                        *ngIf="registrationForm.get('password').touched && 
+                        registrationForm.get('password').hasError('minlength')">password should be minimum 6 characters</div>
+                  </div>
+                </div>
+                <div class="form-check d-flex justify-content-start mb-1 pb-3">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="checkbox" formControlName="accept"/>
+                    <label class="form-check-label" for="checkbox">
+                        Accept the Registration with Telus International
+                    </label>
+                        
+                  </div>
+  
+                <div class="mt-0">
+  
+                  <input class="btn btn-primary btn-lg" type="submit" value="submit" [disabled]="registrationForm.invalid"> 
+                </div>
+              </form>
+              <button class="btn btn-success mt-2" routerLink="/users">UserData</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
